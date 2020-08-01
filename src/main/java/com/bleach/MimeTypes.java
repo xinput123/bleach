@@ -1,6 +1,7 @@
 package com.bleach;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.util.Properties;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
  * @Date: 2020-07-02 11:29
  */
 public class MimeTypes {
-    private static final Logger logger = Logs.get();
+    private static final Logger logger = LoggerFactory.getLogger(MimeTypes.class);
 
     private static Properties mimetypes = null;
     private static Pattern extPattern;

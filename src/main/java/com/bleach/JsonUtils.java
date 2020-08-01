@@ -14,6 +14,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +34,7 @@ import java.util.TimeZone;
  */
 public class JsonUtils {
 
-    private static final Logger logger = Logs.get();
+    private static final Logger logger = LoggerFactory.getLogger(JsonUtils.class);
 
     private static ObjectMapper mapper = new ObjectMapper()
             .setSerializationInclusion(JsonInclude.Include.NON_NULL)
@@ -66,7 +67,6 @@ public class JsonUtils {
             try {
                 return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
             } catch (JsonProcessingException e) {
-                e.printStackTrace();
                 return null;
             }
         }

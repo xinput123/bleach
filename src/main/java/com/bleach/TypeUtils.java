@@ -255,85 +255,6 @@ public class TypeUtils {
         return new Date(longValue);
     }
 
-    public static final java.sql.Date castToSqlDate(Object value) {
-        if (value == null) {
-            return null;
-        }
-
-        if (value instanceof Calendar) {
-            return new java.sql.Date(((Calendar) value).getTimeInMillis());
-        }
-
-        if (value instanceof java.sql.Date) {
-            return (java.sql.Date) value;
-        }
-
-        if (value instanceof Date) {
-            return new java.sql.Date(((Date) value).getTime());
-        }
-
-        long longValue = 0;
-
-        if (value instanceof Number) {
-            longValue = ((Number) value).longValue();
-        }
-
-        if (value instanceof String) {
-            String strVal = (String) value;
-            if (strVal.length() == 0) {
-                return null;
-            }
-
-            longValue = Long.parseLong(strVal);
-        }
-
-        if (longValue <= 0) {
-            throw new TypeException("can not cast to SQL Date, value : "
-                    + value);
-        }
-
-        return new java.sql.Date(longValue);
-    }
-
-    public static final java.sql.Timestamp castToTimestamp(Object value) {
-        if (value == null) {
-            return null;
-        }
-
-        if (value instanceof Calendar) {
-            return new java.sql.Timestamp(((Calendar) value).getTimeInMillis());
-        }
-
-        if (value instanceof java.sql.Timestamp) {
-            return (java.sql.Timestamp) value;
-        }
-
-        if (value instanceof Date) {
-            return new java.sql.Timestamp(((Date) value).getTime());
-        }
-
-        long longValue = 0;
-
-        if (value instanceof Number) {
-            longValue = ((Number) value).longValue();
-        }
-
-        if (value instanceof String) {
-            String strVal = (String) value;
-            if (strVal.length() == 0) {
-                return null;
-            }
-
-            longValue = Long.parseLong(strVal);
-        }
-
-        if (longValue <= 0) {
-            throw new TypeException("can not cast to Date, value : " + value);
-        }
-
-        return new java.sql.Timestamp(longValue);
-    }
-
     public static final Long castToLong(Object value) {
         if (value == null) {
             return null;
@@ -487,14 +408,6 @@ public class TypeUtils {
 
         if (clazz == Date.class) {
             return (T) castToDate(obj);
-        }
-
-        if (clazz == java.sql.Date.class) {
-            return (T) castToSqlDate(obj);
-        }
-
-        if (clazz == java.sql.Timestamp.class) {
-            return (T) castToTimestamp(obj);
         }
 
         if (Calendar.class.isAssignableFrom(clazz)) {

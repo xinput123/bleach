@@ -47,7 +47,7 @@ public class FileHelper {
      * @return
      */
     public static <T> List<T> readCsv(String csvText, int skipRowNum, Class<T> clazz) {
-        BeanListProcessor<T> rowProcessor = new BeanListProcessor(clazz);
+        BeanListProcessor<T> rowProcessor = new BeanListProcessor<>(clazz);
         CsvParserSettings parserSettings = new CsvParserSettings();
         parserSettings.setProcessor(rowProcessor);
         parserSettings.getFormat().setLineSeparator("\n");
