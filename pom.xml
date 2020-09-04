@@ -6,7 +6,7 @@
 
     <groupId>com.github.xinput123</groupId>
     <artifactId>bleach</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.5</version>
     <packaging>jar</packaging>
 
     <name>bleach</name>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.10-java7</version>
+            <version>1.4.12</version>
         </dependency>
 
         <!-- csv -->
@@ -223,7 +223,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>com/bleach/mime-types.properties</include>
+                    <include>com/xinput/bleach/util/mime-types.properties</include>
                 </includes>
             </resource>
         </resources>
@@ -262,13 +262,14 @@
                         <version>2.2.1</version>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <id>attach-sources</id>
                                 <goals>
                                     <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
                     </plugin>
+
                     <!-- Javadoc -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -279,13 +280,14 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <id>attach-javadocs</id>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>
                     </plugin>
+
                     <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -293,6 +295,7 @@
                         <version>1.5</version>
                         <executions>
                             <execution>
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
@@ -300,34 +303,28 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!--Compiler -->
+
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.0</version>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
                         <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                            <fork>true</fork>
-                            <verbose>true</verbose>
-                            <encoding>UTF-8</encoding>
-                            <showWarnings>false</showWarnings>
+                            <serverId>sonatype-nexus-snapshots</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
-                    </plugin>
-                    <!--Release -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5.3</version>
                     </plugin>
                 </plugins>
             </build>
+
             <distributionManagement>
                 <snapshotRepository>
                     <id>sonatype-nexus-snapshots</id>
                     <name>Sonatype Nexus Snapshots</name>
                     <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
+
                 <repository>
                     <id>sonatype-nexus-snapshots</id>
                     <name>Nexus Release Repository</name>
