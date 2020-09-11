@@ -6,7 +6,7 @@ package com.xinput.bleach.consts;
  * @author <a href="mailto:xinput.xx@gmail.com">xinput</a>
  * @date 2020-09-11 10:07
  */
-public class BleachSystemConsts {
+public class BleachConsts {
 
     /**
      * 默认配置文件名称

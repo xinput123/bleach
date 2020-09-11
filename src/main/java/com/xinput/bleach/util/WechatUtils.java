@@ -1,6 +1,6 @@
 package com.xinput.bleach.util;
 
-import com.xinput.bleach.config.BleachSystemConfig;
+import com.xinput.bleach.config.BleachConfig;
 import com.xinput.bleach.domain.WechatUserInfo;
 import org.apache.http.client.ClientProtocolException;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ public class WechatUtils {
     private static String wxUrl = "https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=#{3}";
 
     public static WechatUserInfo code2Session(String code) {
-        String requestUrl = MessageFormat.format(wxUrl, BleachSystemConfig.getWechatAppid(), BleachSystemConfig.getWechatSecret(), code, "authorization_code");
+        String requestUrl = MessageFormat.format(wxUrl, BleachConfig.getWechatAppid(), BleachConfig.getWechatSecret(), code, "authorization_code");
         return code2Session(requestUrl, code);
     }
 

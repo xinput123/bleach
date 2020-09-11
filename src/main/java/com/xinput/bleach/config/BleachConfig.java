@@ -1,7 +1,7 @@
 package com.xinput.bleach.config;
 
 import com.google.common.collect.Lists;
-import com.xinput.bleach.consts.BleachSystemConsts;
+import com.xinput.bleach.consts.BleachConsts;
 import com.xinput.bleach.util.SimpleProperties;
 import com.xinput.bleach.util.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
@@ -12,13 +12,13 @@ import java.util.List;
  * @author xinput
  * @date 2020-06-21 09:46
  */
-public class BleachSystemConfig {
+public class BleachConfig {
 
     public static SimpleProperties SP;
 
     static {
         try {
-            SP = SimpleProperties.readConfiguration(BleachSystemConsts.DEFAULT_SYSTEM_FILE);
+            SP = SimpleProperties.readConfiguration(BleachConsts.DEFAULT_SYSTEM_FILE);
         } catch (Exception e) {
             SP = null;
         }
@@ -28,14 +28,14 @@ public class BleachSystemConfig {
      * 获取微信小程序id
      */
     public static String getWechatAppid() {
-        return get(BleachSystemConsts.WECHAT_APPID);
+        return get(BleachConsts.WECHAT_APPID);
     }
 
     /**
      * 获取微信小程序 secret
      */
     public static String getWechatSecret() {
-        return get(BleachSystemConsts.WECHAT_SECRET);
+        return get(BleachConsts.WECHAT_SECRET);
     }
 
     public static final int getInt(String key, int defaultValue) {
