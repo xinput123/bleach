@@ -70,7 +70,7 @@ public class SimpleProperties {
         Properties propsFromFile = null;
 
         // 如果是系统的绝对路径
-        if (filename.contains("/") || filename.contains("\\")) {
+        if (filename.contains(StringUtils.SLASH) || filename.contains("\\")) {
             try {
                 is = new FileInputStream(conf);
             } catch (FileNotFoundException e) {
@@ -439,8 +439,8 @@ public class SimpleProperties {
         Enumeration<?> keys = props.propertyNames();
         HashSet<String> groups = new HashSet<>(10);
 
-        if (!prefix.endsWith(".")) {
-            prefix += ".";
+        if (!prefix.endsWith(StringUtils.POINT)) {
+            prefix += StringUtils.POINT;
         }
 
         while (keys.hasMoreElements()) {
@@ -482,8 +482,8 @@ public class SimpleProperties {
         Enumeration<?> keys = props.propertyNames();
         Properties group = new Properties();
 
-        if (!prefix.endsWith(".")) {
-            prefix += ".";
+        if (!prefix.endsWith(StringUtils.POINT)) {
+            prefix += StringUtils.POINT;
         }
 
         while (keys.hasMoreElements()) {

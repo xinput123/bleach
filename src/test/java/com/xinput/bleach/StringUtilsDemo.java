@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author xinput
  * @date 2020-09-01 22:07
  */
-public class StringUtils {
+public class StringUtilsDemo {
 
     private static final char PACKAGE_SEPARATOR_CHAR = '.';
 

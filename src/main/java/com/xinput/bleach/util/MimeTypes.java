@@ -86,8 +86,8 @@ public class MimeTypes {
     public static boolean isValidMimeType(String mimeType) {
         if (mimeType == null) {
             return false;
-        } else if (mimeType.indexOf(";") != -1) {
-            return mimetypes().contains(mimeType.split(";")[0]);
+        } else if (mimeType.indexOf(StringUtils.SEMICOLON) != -1) {
+            return mimetypes().contains(mimeType.split(StringUtils.SEMICOLON)[0]);
         } else {
             return mimetypes().contains(mimeType);
         }
@@ -99,7 +99,7 @@ public class MimeTypes {
         }
         // Load default mimetypes from the framework
         try {
-            InputStream is = MimeTypes.class.getClassLoader().getResourceAsStream("com/precisource/util/mime-types.properties");
+            InputStream is = MimeTypes.class.getClassLoader().getResourceAsStream("com/xinput/bleach/util/mime-types.properties");
             mimetypes = new Properties();
             mimetypes.load(is);
         } catch (Exception ex) {
@@ -114,11 +114,4 @@ public class MimeTypes {
         return mimetypes;
     }
 
-    public static void main(String[] args) {
-//        InputStream stream = MimeTypes.class.getClassLoader().getResourceAsStream("com/precisource/util/mime-types.properties");
-//        System.out.println(stream == null);
-
-        String contentType = MimeTypes.getContentType("2.jpeg");
-        System.out.println(contentType);
-    }
 }

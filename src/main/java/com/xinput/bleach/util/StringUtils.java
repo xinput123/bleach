@@ -5,6 +5,9 @@ import com.xinput.bleach.annotation.Remark;
 
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
+    @Remark("点.")
+    public static final String POINT = ".";
+
     @Remark("与字符串")
     public static final String SEPARATOR = "&";
 
@@ -24,7 +27,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     public static final char TAB = '\t';
 
     @Remark("手机号长度")
-    public static final int PHONE_length = 11;
+    public static final int PHONE_LENGTH = 11;
 
     @Remark("15位身份证号码长度")
     public static final int IDCARD_15_LENGTH = 15;
