@@ -1,7 +1,9 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.http;
 
 import com.google.common.base.Joiner;
 import com.xinput.bleach.exception.HttpUtilException;
+import com.xinput.bleach.util.JsonUtils;
+import com.xinput.bleach.util.StringUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.http.HttpEntity;

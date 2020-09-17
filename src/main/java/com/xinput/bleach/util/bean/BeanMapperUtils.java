@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.bean;
 
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;

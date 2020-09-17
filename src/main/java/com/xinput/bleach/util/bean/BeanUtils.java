@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.bean;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;

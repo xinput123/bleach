@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.http;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.date;
 
 import com.google.common.collect.Lists;
 

@@ -17,6 +17,7 @@ package com.xinput.bleach.util;
  */
 
 import com.xinput.bleach.exception.TypeException;
+import com.xinput.bleach.util.date.DateUtils;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.ParameterizedType;

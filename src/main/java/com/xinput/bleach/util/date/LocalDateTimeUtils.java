@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.date;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -16,6 +16,13 @@ import java.util.Date;
 public class LocalDateTimeUtils {
 
     // ========================= LocalDateTime => 指定类型字符串 ======================
+
+    /**
+     * LocalDateTime -> yyyyMMddHHmmss
+     */
+    public static String formatTimeStamp(LocalDateTime localDateTime) {
+        return format(localDateTime, DateUtils.DATE_TIME_TIMESTAMP_FORMATTER);
+    }
 
     /**
      * LocalDateTime -> yyyy-MM-dd HH:mm:ss
@@ -46,6 +53,13 @@ public class LocalDateTimeUtils {
     }
 
     // ========================= 指定类型字符串 => LocalDateTime ======================
+
+    /**
+     * yyyyMMddHHmmss -> LocalDateTime
+     */
+    public static LocalDateTime parseTimeStamp(String dateString) {
+        return parse(dateString, DateUtils.DATE_TIME_TIMESTAMP_FORMATTER);
+    }
 
     /**
      * yyyy-MM-dd HH:mm:ss -> LocalDateTime

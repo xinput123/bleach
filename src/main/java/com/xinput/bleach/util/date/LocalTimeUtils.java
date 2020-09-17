@@ -1,4 +1,4 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.date;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

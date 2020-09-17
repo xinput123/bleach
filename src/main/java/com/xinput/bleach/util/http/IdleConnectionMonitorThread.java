@@ -1,5 +1,6 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.http;
 
+import com.xinput.bleach.util.Logs;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.slf4j.Logger;
 

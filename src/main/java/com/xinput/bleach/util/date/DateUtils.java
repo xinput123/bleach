@@ -1,5 +1,7 @@
-package com.xinput.bleach.util;
+package com.xinput.bleach.util.date;
 
+import com.xinput.bleach.util.Logs;
+import com.xinput.bleach.util.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.slf4j.Logger;
 
@@ -20,11 +22,15 @@ public class DateUtils extends DateFormatUtils {
 
     private static final Logger logger = Logs.get();
 
+    public static final String DATE_TIME_TIMESTAMP_FORMATTER_STRING = "yyyyMMddHHmmss";
+
     public static final String DATE_TIME_FORMATTER_STRING = "yyyy-MM-dd HH:mm:ss";
 
     public static final String DATE_FORMATTER_STRING = "yyyy-MM-dd";
 
     public static final String TIME_FORMATTER_STRING = "HH:mm:ss";
+
+    public static final DateTimeFormatter DATE_TIME_TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern(DATE_TIME_TIMESTAMP_FORMATTER_STRING);
 
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(DATE_TIME_FORMATTER_STRING);
 

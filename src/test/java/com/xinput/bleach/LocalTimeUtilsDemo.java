@@ -1,6 +1,6 @@
 package com.xinput.bleach;
 
-import com.xinput.bleach.util.LocalTimeUtils;
+import com.xinput.bleach.util.date.LocalTimeUtils;
 import org.junit.Test;
 
 import java.time.LocalTime;

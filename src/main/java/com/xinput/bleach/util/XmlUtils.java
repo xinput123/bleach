@@ -3,6 +3,7 @@ package com.xinput.bleach.util;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.mapper.MapperWrapper;
+import com.xinput.bleach.util.xml.XStreamInitializer;
 
 /**
  * 解析xml数据
@@ -15,7 +16,7 @@ public class XmlUtils {
      * @return String xml字符串
      */
     public static String toXml(Object obj) {
-        XStream xstream = new XStream();
+        XStream xstream = XStreamInitializer.getInstance();
         // 如果没有这句，xml中的根元素会是<包.类名>；或者说：注解根本就没生效，所以的元素名就是类的属性
         // 通过注解方式的，一定要有这句话
         xstream.processAnnotations(obj.getClass());
@@ -47,6 +48,8 @@ public class XmlUtils {
             }
         };
         xstream.processAnnotations(cls);
+        XStream.setupDefaultSecurity(xstream);
+        xstream.allowTypes(new Class[]{cls});
         return (T) xstream.fromXML(xmlStr);
     }
 
@@ -68,6 +71,8 @@ public class XmlUtils {
             }
         };
         xstream.processAnnotations(clazz);
+        XStream.setupDefaultSecurity(xstream);
+        xstream.allowTypes(new Class[]{clazz});
         return (T) xstream.fromXML(String.valueOf(objs[0]));
     }
 }
