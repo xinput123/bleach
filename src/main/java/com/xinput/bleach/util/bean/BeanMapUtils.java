@@ -38,10 +38,7 @@ public class BeanMapUtils {
      * @return
      * @throws Exception
      */
-    public static <T> T toBean(Map map, Class<T> beanClass) throws Exception {
-        T bean = beanClass.newInstance();
-        BeanMap beanMap = BeanMap.create(bean);
-        beanMap.putAll(map);
-        return bean;
+    public static <T> T toBean(Map map, Class<T> beanClass) {
+        return BeanUtils.convertor(map, beanClass);
     }
 }
