@@ -1,19 +1,25 @@
 package com.xinput.bleach.consts;
 
-import com.xinput.bleach.annotation.Remark;
-
 public class BaseConsts {
 
-    @Remark("有效")
+    /**
+     * 有效
+     */
     public static final int RECORD_STATE_VALID = 0;
 
-    @Remark("无效")
+    /**
+     * 无效
+     */
     public static final int RECORD_STATE_INVALID = 1;
 
-    @Remark("启用")
+    /**
+     * 启用
+     */
     public static final boolean ENABLE = true;
 
-    @Remark("禁用")
+    /**
+     * 禁用
+     */
     public static final boolean DISABLE = false;
 
     // ------------------------ 性别 ---------------------------
