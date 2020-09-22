@@ -26,12 +26,12 @@ public class XmlUtils {
     /**
      * 将传入xml文本转换成Java对象
      *
-     * @param xmlStr
-     * @param cls    xml对应的class类
+     * @param xml
+     * @param cls xml对应的class类
      * @return T   xml对应的class类的实例对象
      */
     @SuppressWarnings("unchecked")
-    public static <T> T toBean(String xmlStr, Class<T> cls) {
+    public static <T> T toBean(String xml, Class<T> cls) {
         // 注意：不是new Xstream(); 否则报错：java.lang.NoClassDefFoundError: org/xmlpull/v1/XmlPullParserFactory
         XStream xstream = new XStream(new DomDriver()) {
             @Override
@@ -50,7 +50,7 @@ public class XmlUtils {
         xstream.processAnnotations(cls);
         XStream.setupDefaultSecurity(xstream);
         xstream.allowTypes(new Class[]{cls});
-        return (T) xstream.fromXML(xmlStr);
+        return (T) xstream.fromXML(xml);
     }
 
     @SuppressWarnings("unchecked")
